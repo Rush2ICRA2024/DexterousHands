@@ -38,6 +38,7 @@ def train():
 	elif args.algo in ["ppo","ddpg","sac","td3","trpo"]:
 		task, env = parse_task(args, cfg, cfg_train, sim_params, agent_index)
 
+		# call the function process_sarl in utils/process_sarl.py
 		sarl = eval('process_sarl')(args, env, cfg_train, logdir)
 
 		iterations = cfg_train["learn"]["max_iterations"]
